@@ -1,0 +1,110 @@
+.job-orders-list-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-style: dashed;
+  border-radius: 10px;
+  padding: 21px;
+}
+
+.job-orders-list-item__title {
+  font-weight: 500;
+  font-size: 13px;
+}
+.job-orders-list-item__title-container__content {
+  font-size: 14px;
+}
+.job-orders-list-item__title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.job-orders-list-item__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.job-orders-list-item__actions__button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  padding: 8px 20px;
+  font-size: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.job-orders-list-item__actions__button--red {
+  background-color: #ffe5e5;
+  color: #9f0e0e;
+}
+
+.job-orders-list-item__actions__button--red:hover {
+  border: 1px solid #9f0e0e;
+}
+
+.job-orders-list-item__actions__button--yellow {
+  background-color: #fff6e5;
+  color: #9f770e;
+}
+
+.job-orders-list-item__actions__button--yellow:hover {
+  border: 1px solid #9f770e;
+}
+
+.job-orders-list-item__actions__button--green {
+  background-color: #e5ffef;
+  color: #106831;
+}
+
+.job-orders-list-item__actions__button--green:hover {
+  border: 1px solid #106831;
+}
+
+.job-orders-list-item__actions__button--blue {
+  background-color: #f8f8f8;
+  color: #36369e;
+}
+
+.job-orders-list-item__actions__button--blue:hover {
+  border: 1px solid #36369e;
+}
+
+.job-orders-list-item__actions__button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.job-orders-list-item__description__textarea {
+  background: #f8f8f8;
+  resize: none;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.job-orders-list-item__save-button {
+  align-self: flex-end;
+  width: 50%;
+  padding: 10px 20px;
+  border: 1px solid #22910f;
+  color: #22910f;
+  background-color: #e7ffe3;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.job-orders-list-item__save-button:hover {
+  background-color: #dbffd5;
+}

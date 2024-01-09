@@ -1,0 +1,15 @@
+.dashboard-content {
+  flex: 4;
+  padding: 20px;
+  padding-right: 200px;
+  padding-left: 100px;
+}
+
+.dashboard-content__header{
+  margin-bottom: 20px;
+}
+
+.dashboard-content__header__title{
+  font-size: 18px;
+  font-weight: 600;
+}

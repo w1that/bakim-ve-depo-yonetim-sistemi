@@ -1,0 +1,54 @@
+.create-demand {
+  width: 60%;
+}
+
+.create-demand__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-demand__form__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-demand__form__input-group--selection {
+  align-items: flex-start;
+}
+
+.create-demand__form__input-group--selection .select__options{
+  bottom: -123px;
+}
+
+.create-demand__form__input-group__label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.create-demand__form__input-group__input {
+  font-size: 13px;
+  height: 200px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.create-demand__form__submit-button {
+  background-color: #0066ff;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.create-demand__form__submit-button:hover {
+  cursor: pointer;
+  background-color: #0053cf;
+}
