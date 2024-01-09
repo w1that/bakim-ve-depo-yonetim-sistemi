@@ -9,22 +9,38 @@ import Select from "../../components/select/Select";
 
 function Login() {
   const [activeOption, setActiveOption] = useState("depo-elemani");
-  const [username, setUsername] = useState("");
+  const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { dispatch } = useAppContext();
   const [value, setvalue] = useState("12");
 
   function handleSignIn() {
-    dispatch({
-      type: "LOGIN",
-      payload: {
-        id: "1725123",
-        role: "bakim-ekibi-elemani",
+    fetch("https://localhost:7036/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    });
+      body: JSON.stringify({
+        mail: mail,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.isSuccess) {
+          dispatch({
+            type: "LOGIN",
+            payload: {
+              id: res.userType,
+              role: res.userId,
+            },
+          });
 
-    navigate("/dashboard");
+          navigate("/dashboard");
+        }
+      });
   }
 
   function handleChangeOption(option) {
@@ -39,22 +55,20 @@ function Login() {
         <div className="login__login-option-selector">
           <button
             onClick={() => handleChangeOption("depo-elemani")}
-            className={`login__login-option-selector__button ${
-              activeOption === "depo-elemani"
-                ? "login__login-option-selector__button--active"
-                : ""
-            }`}
+            className={`login__login-option-selector__button ${activeOption === "depo-elemani"
+              ? "login__login-option-selector__button--active"
+              : ""
+              }`}
           >
             Depo Çalışanı
           </button>
 
           <button
             onClick={() => handleChangeOption("bakim-ekibi")}
-            className={`login__login-option-selector__button ${
-              activeOption === "bakim-ekibi"
-                ? "login__login-option-selector__button--active"
-                : ""
-            }`}
+            className={`login__login-option-selector__button ${activeOption === "bakim-ekibi"
+              ? "login__login-option-selector__button--active"
+              : ""
+              }`}
           >
             Bakım Ekibi Üyesi
           </button>
@@ -66,13 +80,13 @@ function Login() {
               className="login__form__input-container__label"
               htmlFor="username"
             >
-              Kullanıcı Adı
+              E posta adresi
             </label>
             <input
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setMail(e.target.value)}
               className="login__form__input"
-              type="text"
-              placeholder="Kullanıcı Adı"
+              type="email"
+              placeholder="E posta adresini gir"
             />
           </div>
 
@@ -88,7 +102,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               className="login__form__input"
               type="password"
-              placeholder="Şifre"
+              placeholder="Şifreyi gir"
             />
           </div>
 

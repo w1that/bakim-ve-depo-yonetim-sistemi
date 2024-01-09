@@ -62,8 +62,18 @@ const sidebarItems = {
 function Sidebar() {
   const { state, dispatch } = useSidebarContext();
   const { state: appState } = useAppContext();
+  const [jobOrdersNumber, setJobOrdersNumber] = React.useState(0);
 
   const sidebarItemsForUser = sidebarItems[appState.user.role];
+
+  useEffect(() => {
+    fetch("https://localhost:7036/IsEmriSayisi")
+      .then((res) => res.json())
+      .then((res) => {
+        // update jsx after fetch
+        setJobOrdersNumber(res.length);
+      });
+  }, []);
 
   useEffect(() => {
     dispatch({
@@ -138,13 +148,26 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebar__container">
         <div className="sidebar__items">
+          <div className="sidebar__items__job-order-number">
+            <p className="sidebar__items__job-order-number__date">
+              {new Date().toLocaleDateString("tr-TR", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+              })}
+            </p>
+
+            <p className="sidebar__items__job-order-number__number">
+              {jobOrdersNumber} iş emri tamamlandı
+            </p>
+          </div>
+
           {sidebarItemsForUser.map((item, index) => (
             <button
               onClick={() => handleClick(index)}
               key={index}
-              className={`sidebar__items__item ${
-                state.activeSidebar === index ? "active" : ""
-              }`}
+              className={`sidebar__items__item ${state.activeSidebar === index ? "active" : ""
+                }`}
             >
               {renderIcon(item.icon)}
               <p className="sidebar__items__item__title">{item.title}</p>

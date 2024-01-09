@@ -3,7 +3,7 @@ const { useContext, useReducer, createContext } = require("react");
 const initialState = {
   user: {
     id: "1725123",
-    role: "depo-elemani", // depo-elemani, bakim-ekibi-elemani, bakim-ekibi-lideri
+    role: "bakim-ekibi-lideri", // depo-elemani, bakim-ekibi-elemani, bakim-ekibi-lideri
   },
 };
 

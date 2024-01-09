@@ -38,3 +38,25 @@
   width: 20px;
   height: 20px;
 }
+
+/* <button className="header__content__export-button">Talepleri Dışa Aktar
+          <img src={ExportIcon} alt="Export" className="header__content__export-icon" />
+          </button>*/
+
+.header__content__export-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.header__content__export-icon {
+  width: 15px;
+  height: 15px;
+}

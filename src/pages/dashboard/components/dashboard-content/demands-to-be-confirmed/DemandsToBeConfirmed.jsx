@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './demands-to-be-confirmed.css'
 import DemandsList from '../components/demands-list/DemandsList';
 
@@ -40,6 +40,17 @@ const demandsToBeConfirmed = [
 ];
 
 function DemandsToBeConfirmed() {
+  const [demands, setDemands] = useState([]);
+
+  useEffect(() => {
+    fetch("https://localhost:7036/getallbakimtalep")
+      .then((res) => res.json())
+      .then((res) => {
+        // update jsx after fetch
+        setDemands(res);
+      });
+  }
+  , []);
   
   return (
     <div className='demands-to-be-confirmed'>
